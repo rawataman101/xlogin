@@ -5,18 +5,23 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(false);
+  const [error, setError] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     if (username === "user" && password === "password") {
       setIsLogin(true);
+      setError(false);
     } else {
+      setError(true);
+      setUsername("");
+      setPassword("");
       console.error("Invalid username or password");
-      alert("Invalid username or password");
     }
   };
   return (
     <div className="App">
       <h1>Login Page</h1>
+      {error && <p>Invalid username or password</p>}
       {isLogin ? (
         <h3>Welcome, user!</h3>
       ) : (
