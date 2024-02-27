@@ -10,6 +10,7 @@ function App() {
     if (username === "user" && password === "password") {
       setIsLogin(true);
     } else {
+      console.error("Invalid username or password");
       alert("Invalid username or password");
     }
   };
